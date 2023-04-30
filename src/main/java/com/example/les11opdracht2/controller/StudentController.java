@@ -27,11 +27,10 @@ public class StudentController {
     public ResponseEntity<Student> createStudent(@RequestBody Student s){
         repos.save(s);
         //het volgende mag je qua schrijfmethode gewoon aannemen
-        URI uri = URI.create(ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/"+ s.getId().toUriString()));
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentRequest().path("/" + s.getId()).toUriString());
         return ResponseEntity.created(uri).body(s);
     }
+
 
 
 
